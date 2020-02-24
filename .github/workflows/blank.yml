@@ -15,11 +15,9 @@ jobs:
       uses: actions/checkout@master
     - name: Build
       run: npm install && npm run build
-    - name: Deploy to GitHub Pages
-      run: |
-        git config --global \"asurance\"
-        git config --global \"784672616@qq.com\"
-        git init
-        git add .
-        git commit -m \"auto deploy\"
-        git push -f git@github.com:asurance/RayTracing.git master
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: master
+        FOLDER: docs

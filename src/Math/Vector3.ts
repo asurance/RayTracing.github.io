@@ -11,19 +11,13 @@ export class Vector3 implements RecyclableObj<Vector3> {
         this.z = z;
     }
     reset(): this { this.x = this.y = this.z = 0; return this; }
-    copy(another: Vector3): this {
-        this.x = another.x;
-        this.y = another.y;
-        this.z = another.z;
-        return this;
-    }
     set(x: number, y: number, z: number): this {
         this.x = x;
         this.y = y;
         this.z = z;
         return this;
     }
-    clone(out = Vector3.Pool.create()): Vector3 {
+    clone(out: Vector3 = Vector3.Pool.create()): Vector3 {
         out.x = this.x;
         out.y = this.y;
         out.z = this.z;

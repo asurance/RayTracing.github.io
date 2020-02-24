@@ -11,11 +11,11 @@ export class Color implements RecyclableObj<Color> {
         this.b = b;
     }
     reset(): this { this.r = this.g = this.b = 0; return this; }
-    copy(another: Color): this {
-        this.r = another.r;
-        this.g = another.g;
-        this.b = another.b;
-        return this;
+    clone(out: Color = Color.Pool.create()): Color {
+        out.r = this.r;
+        out.g = this.g;
+        out.b = this.b;
+        return out;
     }
     set(r: number, g: number, b: number): this {
         this.r = r;

@@ -2,7 +2,7 @@ export type RecyclableConstrutor<T> = new () => RecyclableObj<T>;
 
 export interface RecyclableObj<T> {
     reset(): ThisType<RecyclableObj<T>>;
-    copy(another: T): ThisType<RecyclableObj<T>>;
+    clone(another: T): T;
 }
 
 export class RecyclablePool<T extends RecyclableObj<T>> {
@@ -37,7 +37,7 @@ export class RecyclablePool<T extends RecyclableObj<T>> {
         this.isTidy = true;
         const result = func();
         this.isTidy = false;
-        out.copy(result);
+        out = result.clone(out);
         this.pool.push(...this.tidyPool);
         this.tidyPool.length = 0;
         return out;

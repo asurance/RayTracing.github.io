@@ -6,6 +6,8 @@ import { World } from './Object/World';
 import { HitInfo } from './Shape/HitInfo';
 import { RTObject } from './Object/RTObject';
 import { Normal } from './Material/Normal';
+import { Pure } from './Material/Pure';
+import { Color } from './Math/Color';
 
 const canvas = document.createElement('canvas');
 canvas.width = global.WIDTH;
@@ -15,8 +17,10 @@ document.body.appendChild(canvas);
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const ctx = canvas.getContext('2d')!;
 const normal = new Normal();
+const pure = new Pure(Color.Pool.create().set(1, 1, 1));
 const world = new World([
-    new RTObject(new Sphere(Vector3.Pool.create().set(0, 0, -1), 0.5), normal)
+    new RTObject(new Sphere(Vector3.Pool.create().set(0, 0, -1), 0.5), normal),
+    new RTObject(new Sphere(Vector3.Pool.create().set(1, -1, -1), 0.5), pure),
 ]);
 const camera = new Camera(Vector3.Pool.create().set(0, 0, 0), Vector3.Pool.create().set(0, 0, -1), Vector3.Pool.create().set(0, 1, 0),
     90, global.WIDTH, global.HEIGHT);

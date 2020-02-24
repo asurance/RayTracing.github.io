@@ -18,5 +18,6 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         BRANCH: master
-        FOLDER: .
+        FOLDER: docs
         TARGET_FOLDER: docs
+        CLEAN: true

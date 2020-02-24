@@ -23,7 +23,7 @@ const config = {
     ],
     output: {
         filename: '[name].[chunkhash].js',
-        path: resolve(__dirname, '../doc')
+        path: resolve(__dirname, '../docs')
     }
 } as Configuration
 

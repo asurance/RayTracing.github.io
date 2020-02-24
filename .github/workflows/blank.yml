@@ -15,7 +15,8 @@ jobs:
       uses: actions/checkout@master
     - name: Build
       run: npm install && npm run build
-    - name: GitHub Pages Deploy
-      env:
-        BUILD_DIR: doc
-      uses: maxheld83/ghpages@v0.2.1
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.2.4
+      with:
+        BRANCH: master
+        FOLDER: doc

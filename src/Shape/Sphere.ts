@@ -7,7 +7,7 @@ export class Sphere implements Shape {
     center: Vector3
     radius: number
     constructor(center: Vector3, radius: number) {
-        this.center = center;
+        this.center = center.clone();
         this.radius = radius;
     }
     hitTest(ray: Ray, min: number, max: number, hitInfo: HitInfo): boolean {

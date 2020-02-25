@@ -1,13 +1,13 @@
 import { Material } from "./Material";
-import { Color } from "../Math/Color";
+import { Vector3 } from "../Math/Vector3";
 
 export class Pure implements Material {
-    private color: Color;
-    constructor(color: Color) {
+    private color: Vector3;
+    constructor(color: Vector3) {
         this.color = color.clone();
     }
 
-    scatter(): Color {
+    scatter(): Vector3 {
         return this.color.clone();
     }
 }

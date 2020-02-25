@@ -1,6 +1,6 @@
 import { Vector3 } from '../Math/Vector3';
-import { Color } from '../Math/Color';
 import { Ray } from '../Math/Ray';
+import { render2Image } from '../Util';
 
 export class Camera {
     origin: Vector3;
@@ -25,7 +25,7 @@ export class Camera {
         this.horizontal = u.multiScale(2 * halfWidth);
         this.vertical = v.multiScale(2 * halfHeight);
     }
-    render(rayFunc: (ray: Ray) => Color): void {
+    render(rayFunc: (ray: Ray) => Vector3): void {
         const ray = new Ray(this.origin, Vector3.Pool.create());
         for (let i = 0; i < this.width; i++) {
             for (let j = 0; j < this.height; j++) {
@@ -35,8 +35,8 @@ export class Camera {
                 ray.u = i;
                 ray.v = j;
                 const color = rayFunc(ray);
-                color.render(this.imageData, i, j);
-                Color.Pool.reUse(color);
+                render2Image(this.imageData, i, j, color);
+                Vector3.Pool.reUse(color);
             }
         }
         Vector3.Pool.reUse(ray.direction);

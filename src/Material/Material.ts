@@ -1,7 +1,7 @@
 import { Ray } from "../Math/Ray";
 import { HitInfo } from "../Shape/HitInfo";
-import { Color } from "../Math/Color";
+import { Vector3 } from "../Math/Vector3";
 
 export interface Material {
-    scatter(ray: Ray, hitInfo: HitInfo): Color;
+    scatter(ray: Ray, hitInfo: HitInfo): Vector3;
 }

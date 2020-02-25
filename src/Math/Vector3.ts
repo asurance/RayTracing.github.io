@@ -1,7 +1,7 @@
 import { RecyclablePool, RecyclableObj } from '../Core/RecyclePool';
 
 export class Vector3 implements RecyclableObj<Vector3> {
-    static Pool = new RecyclablePool(Vector3, 'Vector3');
+    static Pool = new RecyclablePool(Vector3);
     x: number;
     y: number;
     z: number;
@@ -70,6 +70,10 @@ export class Vector3 implements RecyclableObj<Vector3> {
         out.x = x;
         out.y = y;
         out.z = z;
+        return out;
+    }
+    reflect(normal: Vector3, out = Vector3.Pool.create()): Vector3 {
+        out = this.add(normal.multiScale(-2 * this.dot(normal), out), out)
         return out;
     }
     toString(): string {

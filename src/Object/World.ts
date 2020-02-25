@@ -8,11 +8,11 @@ export class World {
     constructor(objs: RTObject[]) {
         this.objs = objs;
     }
-    hitTest(ray: Ray, hitInfo: HitInfo): Vector3 {
+    hitTest(ray: Ray, hitInfo: HitInfo): Vector3 | Ray {
         let hitIndex: number | null = null;
         let nearT = Infinity;
         this.objs.forEach((obj, i) => {
-            if (obj.shape.hitTest(ray, 0, nearT, hitInfo)) {
+            if (obj.shape.hitTest(ray, 1e-10, nearT, hitInfo)) {
                 hitIndex = i;
                 nearT = hitInfo.t;
             }

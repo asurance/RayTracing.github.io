@@ -23,5 +23,10 @@ const world = new World([
 ]);
 const camera = new Camera(Vector3.Pool.create().set(0, 0, 0), Vector3.Pool.create().set(0, 0, -1), Vector3.Pool.create().set(0, 1, 0),
     90, global.WIDTH, global.HEIGHT);
+console.log('first render');
+camera.render(world);
+console.log('second render');
+camera.render(world);
+console.log('third render');
 camera.render(world);
 ctx.putImageData(camera.imageData, 0, 0);

@@ -1,7 +1,7 @@
 import { RecyclablePool, RecyclableObj } from '../Core/RecyclePool';
 
 export class Vector3 implements RecyclableObj<Vector3> {
-    static Pool = new RecyclablePool(Vector3);
+    static Pool = new RecyclablePool(Vector3, 'Vector3');
     x: number;
     y: number;
     z: number;

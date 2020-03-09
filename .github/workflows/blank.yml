@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Echo
+      run: echo ${{github.actor}}
+    
+    - uses: actions/checkout@v2
+
+    - name: Install
+      run: npm install
+
+    - name: Build
+      run: npm run build
+    
+    - name: Deploy
+      run: |
+        git config user.email 784672616@qq.com
+        git config user.name asurance
+        git status
+        git add -A
+        git commit -am "auto commit"
+        git pull --rebase
+        git push origin master

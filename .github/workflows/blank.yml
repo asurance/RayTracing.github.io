@@ -22,8 +22,7 @@ jobs:
     
     - name: Deploy
       run: |
-        git config user.email 784672616@qq.com
-        git config user.name asurance
+        git config user.name ${{github.actor}}
         git status
         git add -A
         git commit -am "auto commit"

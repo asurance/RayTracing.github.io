@@ -1,7 +1,2 @@
-export const global: {
-    readonly WIDTH: number;
-    readonly HEIGHT: number;
-} = {
-    WIDTH: 201,
-    HEIGHT: 101,
-};
+export const WIDTH = 1024
+export const HEIGHT = 768

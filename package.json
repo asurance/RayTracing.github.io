@@ -2,7 +2,6 @@
   "name": "raytracinginaweek",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "build": "cross-env TS_NODE_PROJECT=\"config/tsconfig.json\" webpack --config config/webpack.prod.config.ts",
     "start": "cross-env TS_NODE_PROJECT=\"config/tsconfig.json\" webpack-dev-server --config config/webpack.dev.config.ts"

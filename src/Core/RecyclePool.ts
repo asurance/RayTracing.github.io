@@ -27,7 +27,9 @@ export class RecyclablePool<T extends RecyclableObj<T>> {
                 console.log(`${this.logCount}:${this.count}`)
             }
         }
-        this.tidyLayer.length > 0 && this.tidyPool.push(obj)
+        if (this.tidyLayer.length > 0) {
+            this.tidyPool.push(obj)
+        }
         return obj
     }
     reUse(obj: T): void {
@@ -39,7 +41,6 @@ export class RecyclablePool<T extends RecyclableObj<T>> {
         out = result.clone(out)
         const length = this.tidyLayer.pop()!
         this.pool.push(...this.tidyPool.splice(length))
-        this.tidyPool.length = 0
         return out
     }
 }

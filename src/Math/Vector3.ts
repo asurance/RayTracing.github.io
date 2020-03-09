@@ -73,8 +73,25 @@ export class Vector3 implements RecyclableObj<Vector3> {
         return out
     }
     reflect(normal: Vector3, out = Vector3.Pool.create()): Vector3 {
-        out = this.add(normal.multiScale(-2 * this.dot(normal), out), out)
-        return out
+        return Vector3.Pool.tidy(() => {
+            return this.add(normal.multiScale(-2 * this.dot(normal)))
+        }, out)
+    }
+
+    refract(normal: Vector3, n: number): Vector3 | null {
+        const uv = this.normalize()
+        const dt = uv.dot(normal)
+        const discriminant = 1 - n * n * (1 - dt * dt)
+        if (discriminant > 0) {
+            const out = Vector3.Pool.tidy(() => {
+                return uv.add(normal.multiScale(-dt)).multiScale(n).add(normal.multiScale(-Math.sqrt(discriminant)))
+            })
+            Vector3.Pool.reUse(uv)
+            return out
+        } else {
+            Vector3.Pool.reUse(uv)
+            return null
+        }
     }
     toString(): string {
         return `(${this.x},${this.y},${this.z})`

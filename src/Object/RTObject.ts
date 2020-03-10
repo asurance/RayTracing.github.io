@@ -1,5 +1,5 @@
-import { Shape } from '../Shape/Shape'
-import { Material } from '../Material/Material'
+import type { Shape } from '../Shape/Shape'
+import type { Material } from '../Material/Material'
 
 export class RTObject {
     shape: Shape

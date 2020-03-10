@@ -1,7 +1,7 @@
-import { Material } from './Material'
+import type { Material } from './Material'
 import { Vector3 } from '../Math/Vector3'
 import { Ray } from '../Math/Ray'
-import { HitInfo } from '../Shape/HitInfo'
+import type { HitInfo } from '../Shape/HitInfo'
 
 export class Dielectrics implements Material {
     constructor(private n: number) { }

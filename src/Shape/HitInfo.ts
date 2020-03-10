@@ -1,4 +1,4 @@
-import { Vector3 } from '../Math/Vector3'
+import type { Vector3 } from '../Math/Vector3'
 
 export interface HitInfo {
     t: number;

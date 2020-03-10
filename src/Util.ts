@@ -1,4 +1,4 @@
-import { Vector3 } from './Math/Vector3'
+import type { Vector3 } from './Math/Vector3'
 
 export function render2Image(data: ImageData, u: number, v: number, color: Vector3): void {
     const index = (v * data.width + u) << 2

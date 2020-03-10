@@ -1,7 +1,7 @@
 import { Vector3 } from '../Math/Vector3'
-import { Ray } from '../Math/Ray'
-import { Shape } from './Shape'
-import { HitInfo } from './HitInfo'
+import type { Ray } from '../Math/Ray'
+import type { Shape } from './Shape'
+import type { HitInfo } from './HitInfo'
 
 export class Sphere implements Shape {
     center: Vector3

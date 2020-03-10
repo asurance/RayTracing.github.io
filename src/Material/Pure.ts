@@ -1,5 +1,5 @@
-import { Material } from './Material'
-import { Vector3 } from '../Math/Vector3'
+import type { Material } from './Material'
+import type { Vector3 } from '../Math/Vector3'
 
 export class Pure implements Material {
     private color: Vector3;

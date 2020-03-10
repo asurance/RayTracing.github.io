@@ -1,6 +1,6 @@
-import { Ray } from '../Math/Ray'
-import { HitInfo } from '../Shape/HitInfo'
-import { RTObject } from './RTObject'
+import type { Ray } from '../Math/Ray'
+import type { HitInfo } from '../Shape/HitInfo'
+import type { RTObject } from './RTObject'
 import { Vector3 } from '../Math/Vector3'
 
 export class World {

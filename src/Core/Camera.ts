@@ -1,8 +1,8 @@
 import { Vector3 } from '../Math/Vector3'
 import { Ray } from '../Math/Ray'
 import { render2Image } from '../Util'
-import { World } from '../Object/World'
-import { HitInfo } from '../Shape/HitInfo'
+import type { World } from '../Object/World'
+import type { HitInfo } from '../Shape/HitInfo'
 
 export class Camera {
     origin: Vector3;

@@ -1,5 +1,6 @@
 import { Vector3 } from './Vector3'
-import { RecyclableObj, RecyclablePool } from '../Core/RecyclePool'
+import { RecyclablePool } from '../Core/RecyclePool'
+import type { RecyclableObj } from '../Core/RecyclePool'
 
 export class Ray implements RecyclableObj<Ray> {
     static Pool = new RecyclablePool<Ray>(Ray, 'Ray');
